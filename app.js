@@ -15,6 +15,7 @@ var users_model = require('./model/users');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+
 //AUTHENTIFICATION
 
 // Configure the local strategy for use by Passport.

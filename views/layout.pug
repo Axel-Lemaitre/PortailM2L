@@ -20,9 +20,18 @@ block body
             #navbar.navbar-collapse.collapse
                 ul.nav.navbar-nav
                     li.active
-                        a(href='/') Home
-                    li
-                        a(href='#about') Menu 1
+                        a(href='/') Accueil
+                    li.dropdown
+                        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                            | Prestations
+                            span.caret
+                        ul.dropdown-menu(role='menu')
+                            li.dropdown-header Saisir:
+                            li
+                                a(href='/affranchissements') Affranchissement
+                            li
+                                a(href='/reproductions') Reproduction
+
                     li
                         a(href='#contact') Menu 2
                     li.dropdown
