@@ -13,11 +13,13 @@ var session = require('express-session'); //library to manage sessions.
 //MODELS
 var users_model = require('./model/users');
 var prestations_model = require('./model/prestations');
+var facturations_model = require('./model/facturations');
 
 //ROUTES
 var index = require('./routes/index');
 var users = require('./routes/users');
 var prestations = require('./routes/prestations');
+var facturations = require('./routes/facturations');
 
 
 var db = require('./databases/db');
@@ -112,6 +114,7 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/users', users);
 app.use('/prestations', prestations);
+app.use('/facturations', facturations);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

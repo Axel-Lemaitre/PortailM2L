@@ -1,13 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET prestation page. */
-router.get('/prestation',
-    function(req, res) {
-        console.log(req.session);
+var prest_controller = require('../controllers/prest_controller');
 
-        res.render('index', { title: 'Portail de la M2L', user: req.user });
-    }
-);
+router.get('/affranchissements', prest_controller.affr_create);
+router.get('/reproductions', prest_controller.repr_create);
 
 module.exports = router;

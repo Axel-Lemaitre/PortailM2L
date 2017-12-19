@@ -28,31 +28,22 @@ block body
                         ul.dropdown-menu(role='menu')
                             li.dropdown-header Saisir:
                             li
-                                a(href='/affranchissements') Affranchissement
+                                a(href='/prestations/affranchissements') Affranchissement
                             li
-                                a(href='/reproductions') Reproduction
+                                a(href='/prestations/reproductions') Reproduction
 
-                    li
-                        a(href='#contact') Menu 2
                     li.dropdown
                         a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
-                            | Menu 3 
+                            | Facturations
                             span.caret
                         ul.dropdown-menu(role='menu')
                             li
-                                a(href='#') Action 1
+                                a(href='/facturations/visualiser') Visualiser
                             li
-                                a(href='#') Action 2 
-                            li
-                                a(href='#') Action 3 
-                            li.divider
-                            li.dropdown-header Nav header
-                            li
-                                a(href='#') Action 4
-                            li
-                                a(href='#') Action 5
-                                
-                ul.nav.navbar-nav.navbar-right
+                                a(href='/facturations/etablir') Établir
+
+
+            ul.nav.navbar-nav.navbar-right
                     li
                         if (!user)
                             a(href="/users/login") Login
