@@ -20,7 +20,7 @@ var users = require('./routes/users');
 var prestations = require('./routes/prestations');
 
 
-var db = require('../databases/db');
+var db = require('./databases/db');
 
 // Connect to POstgres on start
 
