@@ -8,12 +8,30 @@ var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
 var session = require('express-session'); //library to manage sessions.
 
+//TEST
+
 //MODELS
 var users_model = require('./model/users');
+var prestations_model = require('./model/prestations');
 
 //ROUTES
 var index = require('./routes/index');
 var users = require('./routes/users');
+var prestations = require('./routes/prestations');
+
+
+var db = require('../databases/db');
+
+// Connect to POstgres on start
+
+db.connect(
+    (err)=> {
+    if (err) {
+        console.log('Unable to connect to Postgres.');
+        process.exit(1);
+    }
+}
+);
 
 
 //AUTHENTIFICATION
@@ -93,6 +111,7 @@ app.use(passport.session());
 // ROUTES
 app.use('/', index);
 app.use('/users', users);
+app.use('/prestations', prestations);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
