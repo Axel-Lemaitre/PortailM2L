@@ -1,1 +1,28 @@
 extends ../layout
+
+block append body
+    .container.theme-showcase(role='main')
+
+
+
+        .page-header
+            h3 Saisir une prestation d'affranchissement:
+
+        .jumbotron
+            form(method='POST' action='affranchissements')
+                div.form-group
+                    label(for='nom') Nom de la ligue:
+                    input#nom.form-control(type='text', placeholder='Nom de la ligue' name='nom')
+                div.form-group
+                    label(for='adresse') Adresse:
+                    input#adresse.form-control(type='text', placeholder='Nom de rue' name='adresse')
+                div.form-group
+                    label(for='ville') Ville:
+                    input#ville.form-control(type='text', placeholder='Nom de la ville' name='ville')
+                div.form-group
+                    label(for='CP') Code postal:
+                    input#CP.form-control(type='int', placeholder='Numéro du code postal' name='CP')
+                div.form-group
+                    label(for='courriel') Courriel:
+                    input#courriel.form-control(type='email', placeholder='adresse@mail.domaine' name='courriel')
+                button.btn.btn-primary(type='submit') Valider

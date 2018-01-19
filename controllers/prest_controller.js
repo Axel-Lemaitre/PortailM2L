@@ -8,13 +8,18 @@ exports.repr_create = function(req, res) {
     res.render('prestations/reproductions')
 };
 
-/*
-exports.prest_store = function(req, res) {
 
-    const query =  {
+exports.affr_store = function(req, res) {
+    var nom = req.body.nom
+    var adresse = req.body.adresse;
+    var ville = req.body.ville;
+    var CP = req.body.CP;
+    var courriel = req.body.courriel;
+
+/*    const query =  {
         // give the query a unique name
-        name: 'fetch-all-book',
-        text: 'SELECT * FROM livre',
+        name: 'enregistrer-affranchissements',
+        text: 'INSERT INTO ligue (id, nom, CP, ville, courriel, rue) VALUES (" + nom + ", " + 2 + ", " + ville + ", " + courriel + ", " + adresse + ") ON CONFLICT (courriel) DO NOTHING;'
     };
 
     db.get().query(query, function(err, result){
@@ -22,10 +27,8 @@ exports.prest_store = function(req, res) {
             console.log(err.stack);
             res.send('ERROR');
         } else {
-            res.render('livre/index', { listeBooks : result });
+            res.render('/');
         }
     });
-
+*/
 };
-
-    */
