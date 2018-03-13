@@ -21,6 +21,17 @@ block body
                 ul.nav.navbar-nav
                     li.active
                         a(href='/') Accueil
+
+                    li.dropdown
+                        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                            | Ligues
+                            span.caret
+                        ul.dropdown-menu(role='menu')
+                            li
+                                a(href='/ligues/visualiser') Visualiser
+                            li
+                                a(href='/ligues/ajouter') Ajouter
+
                     li.dropdown
                         a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
                             | Prestations

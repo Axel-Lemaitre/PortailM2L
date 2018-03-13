@@ -1,26 +1,27 @@
 var db = require('../databases/db.js');
 
-exports.affr_create = function(req, res) {
-    res.render('prestations/affranchissements')
+exports.ligue_create = function(req, res) {
+    res.render('ligues/visualiser')
 };
 
-exports.repr_create = function(req, res) {
-    res.render('prestations/reproductions')
+exports.ligue_create = function(req, res) {
+    res.render('ligues/ajouter')
 };
 
 
-exports.affr_store = function(req, res) {
+exports.ligue_store = function(req, res) {
     var nom = req.body.nom;
     var adresse = req.body.adresse;
     var ville = req.body.ville;
     var cp = req.body.cp;
     var courriel = req.body.courriel;
+    var telephone = req.body.telephone;
     var id = 7;
 
     const query =  {
-        name: 'enregistrer-affranchissement',
-        text: 'INSERT INTO ligue (id, nom, cp, ville, courriel, adresse) VALUES ($1, $2, $3, $4, $5, $6)',
-        values: [id, nom, cp, ville, courriel, adresse]
+        name: 'ajouter-ligue',
+        text: 'INSERT INTO ligue (id, nom, cp, ville, courriel, adresse) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+        values: [id, nom, cp, ville, courriel, telephone, adresse]
     };
 
     db.get().query(query, function(err, result){

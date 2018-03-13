@@ -14,12 +14,14 @@ var session = require('express-session'); //library to manage sessions.
 var users_model = require('./model/users');
 var prestations_model = require('./model/prestations');
 var facturations_model = require('./model/facturations');
+var ligues_model = require('./model/ligues');
 
 //ROUTES
 var index = require('./routes/index');
 var users = require('./routes/users');
 var prestations = require('./routes/prestations');
 var facturations = require('./routes/facturations');
+var ligues = require('.routes/ligues');
 
 
 var db = require('./databases/db');
@@ -115,6 +117,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/prestations', prestations);
 app.use('/facturations', facturations);
+app.use('/ligues', ligues);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

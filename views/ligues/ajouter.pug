@@ -6,10 +6,10 @@ block append body
 
 
         .page-header
-            h3 Saisir une prestation d'affranchissement:
+            h3 Saisir une nouvelle ligue:
 
         .jumbotron
-            form(method='POST' action='affranchissements')
+            form(method='POST' action='ajouter')
                 div.form-group
                     label(for='nom') Nom de la ligue:
                     input#nom.form-control(type='text', placeholder='Nom de la ligue' name='nom')
@@ -25,4 +25,7 @@ block append body
                 div.form-group
                     label(for='courriel') Courriel:
                     input#courriel.form-control(type='email', placeholder='adresse@mail.domaine' name='courriel')
+                div.form-group
+                    label(for='telephone') Courriel:
+                    input#telephone.form-control(type='int', placeholder='Numéro de téléphone' name='telephone')
                 button.btn.btn-primary(type='submit') Valider
