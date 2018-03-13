@@ -21,7 +21,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var prestations = require('./routes/prestations');
 var facturations = require('./routes/facturations');
-var ligues = require('.routes/ligues');
+var ligues = require('./routes/ligues');
 
 
 var db = require('./databases/db');

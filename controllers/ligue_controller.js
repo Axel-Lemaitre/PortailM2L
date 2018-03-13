@@ -16,11 +16,11 @@ exports.ligue_store = function(req, res) {
     var cp = req.body.cp;
     var courriel = req.body.courriel;
     var telephone = req.body.telephone;
-    var id = 7;
+    var id = 8;
 
     const query =  {
         name: 'ajouter-ligue',
-        text: 'INSERT INTO ligue (id, nom, cp, ville, courriel, adresse) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+        text: 'INSERT INTO ligue (id, nom, cp, ville, courriel, téléphone, adresse) VALUES ($1, $2, $3, $4, $5, $6, $7)',
         values: [id, nom, cp, ville, courriel, telephone, adresse]
     };
 
