@@ -1,6 +1,6 @@
 var db = require('../databases/db.js');
 
-exports.ligue_create = function(req, res) {
+exports.ligue_view = function(req, res) {
     res.render('ligues/visualiser')
 };
 
@@ -16,12 +16,11 @@ exports.ligue_store = function(req, res) {
     var cp = req.body.cp;
     var courriel = req.body.courriel;
     var telephone = req.body.telephone;
-    var id = 8;
 
     const query =  {
         name: 'ajouter-ligue',
-        text: 'INSERT INTO ligue (id, nom, cp, ville, courriel, téléphone, adresse) VALUES ($1, $2, $3, $4, $5, $6, $7)',
-        values: [id, nom, cp, ville, courriel, telephone, adresse]
+        text: 'INSERT INTO ligue (nom, cp, ville, courriel, téléphone, adresse) VALUES ($1, $2, $3, $4, $5, $6)',
+        values: [nom, cp, ville, courriel, telephone, adresse]
     };
 
     db.get().query(query, function(err, result){
