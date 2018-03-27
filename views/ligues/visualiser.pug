@@ -5,6 +5,9 @@ block append body
         th, td {
             padding: 10px;
         }
+        table {
+            width: 100%;
+        }
 
     .container.theme-showcase(role='main')
 
@@ -17,16 +20,16 @@ block append body
             table
                 tr
                     th Nom de la ligue
+                    th Adresse
                     th Code postal
                     th Ville
                     th Courriel
-                    th Adresse
                     th Téléphone
                 each laLigue in listLigue
                     tr
                         td #{laLigue.nom}
+                        td #{laLigue.adresse}
                         td #{laLigue.cp}
                         td #{laLigue.ville}
                         td #{laLigue.courriel}
-                        td #{laLigue.adresse}
-                        td #{laLigue.téléphone}
+                        td #{laLigue.tel}

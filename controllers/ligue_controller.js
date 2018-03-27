@@ -28,12 +28,12 @@ exports.ligue_store = function(req, res) {
     var ville = req.body.ville;
     var cp = req.body.cp;
     var courriel = req.body.courriel;
-    var telephone = req.body.telephone;
+    var tel = req.body.tel;
 
     const query =  {
         name: 'ajouter-ligue',
-        text: 'INSERT INTO ligue (nom, cp, ville, courriel, téléphone, adresse) VALUES ($1, $2, $3, $4, $5, $6)',
-        values: [nom, cp, ville, courriel, telephone, adresse]
+        text: 'INSERT INTO ligue (nom, cp, ville, adresse, tel, courriel) VALUES ($1, $2, $3, $4, $5, $6)',
+        values: [nom, cp, ville, adresse, tel, courriel]
     };
 
     db.get().query(query, function(err, result){
