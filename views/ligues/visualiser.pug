@@ -1,1 +1,32 @@
 extends ../layout
+
+block append body
+    style.
+        th, td {
+            padding: 10px;
+        }
+
+    .container.theme-showcase(role='main')
+
+
+
+        .page-header
+            h3 Affichage des ligues:
+
+        .jumbotron
+            table
+                tr
+                    th Nom de la ligue
+                    th Code postal
+                    th Ville
+                    th Courriel
+                    th Adresse
+                    th Téléphone
+                each laLigue in listLigue
+                    tr
+                        td #{laLigue.nom}
+                        td #{laLigue.cp}
+                        td #{laLigue.ville}
+                        td #{laLigue.courriel}
+                        td #{laLigue.adresse}
+                        td #{laLigue.téléphone}

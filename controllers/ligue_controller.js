@@ -1,7 +1,20 @@
 var db = require('../databases/db.js');
 
-exports.ligue_view = function(req, res) {
-    res.render('ligues/visualiser')
+exports.ligue_list = function(req, res) {
+    const query =  {
+        name: 'afficher-ligues',
+        text: 'select * from ligue',
+    };
+
+    db.get().query(query, function(err, result){
+        if (err) {
+            console.log(err.stack);
+            res.send('ERROR');
+        } else {
+            res.render('ligues/visualiser', {listLigue : result.rows});
+        }
+    });
+
 };
 
 exports.ligue_create = function(req, res) {
