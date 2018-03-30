@@ -1,6 +1,16 @@
 extends ../layout
 
 block append body
+
+    style.
+        th, td {
+            padding: 10px;
+        }
+
+        table, select {
+            width: 100%;
+        }
+
     .container.theme-showcase(role='main')
 
 
@@ -11,18 +21,23 @@ block append body
         .jumbotron
             form(method='POST' action='affranchissements')
                 div.form-group
-                    label(for='nom') Nom de la ligue:
-                    input#nom.form-control(type='text', placeholder='Nom de la ligue' name='nom')
+                    label Nom de la ligue:
+                    br
+                    select
+                        each laLigue in listLigue
+                            option(value= laLigue.id, name='idligue') #{laLigue.nom}
+
                 div.form-group
-                    label(for='adresse') Adresse:
-                    input#adresse.form-control(type='text', placeholder='Nom de rue' name='adresse')
+                    label Type d'affranchissement:
+                    br
+                    select
+                        each leTypeAffr in typeAffr
+                            option(value= leTypeAffr.id, name='idTypeAffr') #{leTypeAffr.libelle}
+
                 div.form-group
-                    label(for='ville') Ville:
-                    input#ville.form-control(type='text', placeholder='Nom de la ville' name='ville')
+                    label Quantité d'affranchissements:
+                    br
+                    input#qteAffr.form-control(type='int', placeholder="Quantité d'affranchissement" name='qteAffr')
+
                 div.form-group
-                    label(for='cp') Code postal:
-                    input#cp.form-control(type='int', placeholder='Numéro du code postal' name='cp')
-                div.form-group
-                    label(for='courriel') Courriel:
-                    input#courriel.form-control(type='email', placeholder='adresse@mail.domaine' name='courriel')
-                button.btn.btn-primary(type='submit') Valider
+                    button.btn.btn-primary(type='submit') Valider
