@@ -6,26 +6,27 @@ block append body
 
 
         .page-header
+            script(src="/javascripts/ligueFonctions.js")
             h3 Saisir une nouvelle ligue:
 
         .jumbotron
             form(method='POST' action='ajouter')
                 div.form-group
                     label(for='nom') Nom de la ligue:
-                    input#nom.form-control(type='text', placeholder='Nom de la ligue' name='nom')
+                    input#nom.form-control(type='text', placeholder='Nom de la ligue' name='nom' onblur="verifNom(this)" required)
                 div.form-group
                     label(for='adresse') Adresse:
-                    input#adresse.form-control(type='text', placeholder='Nom de rue' name='adresse')
+                    input#adresse.form-control(type='text', placeholder='Nom de rue' name='adresse' onblur="verifAdresse(this)" required)
                 div.form-group
                     label(for='ville') Ville:
-                    input#ville.form-control(type='text', placeholder='Nom de la ville' name='ville')
+                    input#ville.form-control(type='text', placeholder='Nom de la ville' name='ville' onblur="verifVille(this)" required)
                 div.form-group
                     label(for='cp') Code postal:
-                    input#cp.form-control(type='int', placeholder='Numéro du code postal' name='cp')
+                    input#cp.form-control(type='int', placeholder='Numéro du code postal' name='cp' onblur="verifCP(this)" required)
                 div.form-group
                     label(for='courriel') Courriel:
-                    input#courriel.form-control(type='email', placeholder='adresse@mail.domaine' name='courriel')
+                    input#courriel.form-control(type='email', placeholder='adresse@mail.domaine' name='courriel' onblur="verifMail(this)" required)
                 div.form-group
                     label(for='tel') Téléphone:
-                    input#tel.form-control(type='int', placeholder='Numéro de téléphone' name='tel')
+                    input#tel.form-control(type='int', placeholder='Numéro de téléphone' name='tel' onblur="verifTel(this)" required)
                 button.btn.btn-primary(type='submit') Valider
