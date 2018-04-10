@@ -19,20 +19,20 @@ block append body
             h3 Saisir une prestation d'affranchissement:
 
         .jumbotron
-            form(method='POST' action='affranchissements')
+            form(method='POST' action='creer')
                 div.form-group
                     label Nom de la ligue:
                     br
-                    select
+                    select(name='idligue')
                         each laLigue in listLigue
-                            option(value= laLigue.id, name='idligue') #{laLigue.nom}
+                            option(value=laLigue.id) #{laLigue.nom}
 
                 div.form-group
                     label Type d'affranchissement:
                     br
-                    select
+                    select(name='idTypeAffr')
                         each leTypeAffr in typeAffr
-                            option(value= leTypeAffr.id, name='idTypeAffr') #{leTypeAffr.libelle}
+                            option(value= leTypeAffr.id) #{leTypeAffr.libelle}
 
                 div.form-group
                     label Quantité d'affranchissements:

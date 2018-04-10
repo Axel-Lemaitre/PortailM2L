@@ -1,6 +1,6 @@
 var db = require('../databases/db.js');
 
-exports.affr_create = function(req, res) {
+exports.pres_create = function(req, res) {
     const query =  {
         name: 'afficher-ligues',
         text: 'select id, nom from ligue',
@@ -20,18 +20,32 @@ exports.affr_create = function(req, res) {
                     console.log(err.stack);
                     res.send('ERROR');
                 } else {
-                    res.render('prestations/affranchissements', {listLigue : result.rows, typeAffr : result2.rows});
+                    res.render('prestations/prestations', {listLigue : result.rows, typeAffr : result2.rows});
                 }
             });
         }
     });
 };
 
-exports.repr_create = function(req, res) {
-    res.render('prestations/reproductions')
-};
+exports.pres_store = function(req, res) {
+    var ligue = req.body.idLigue;
+    var typeAffr = req.body.idTypeAffr;
+    var quantite = req.body.qteAffr;
+    var idPrest = '1';
 
+    const query =  {
+        name: 'ajouter-prest',
+        text: 'INSERT INTO affranchissement (quantite, typeaffr, idprestation) VALUES ($1, $2, $3)',
+        values: [quantite, typeAffr, idPrest]
+    };
 
-exports.affr_store = function(req, res) {
+    db.get().query(query, function(err, result){
+        if (err) {
+            console.log(err.stack);
+            res.send('ERROR');
+        } else {
+            res.redirect('../../');
+        }
+    });
 
 };

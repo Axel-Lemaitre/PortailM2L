@@ -19,7 +19,7 @@ block body
                 a.navbar-brand(href='#')= "Portail M2L"
             #navbar.navbar-collapse.collapse
                 ul.nav.navbar-nav
-                    li.active
+                    li
                         a(href='/') Accueil
 
                     li.dropdown
@@ -32,16 +32,8 @@ block body
                             li
                                 a(href='/ligues/ajouter') Ajouter
 
-                    li.dropdown
-                        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
-                            | Prestations
-                            span.caret
-                        ul.dropdown-menu(role='menu')
-                            li.dropdown-header Saisir:
-                            li
-                                a(href='/prestations/affranchissements') Affranchissement
-                            li
-                                a(href='/prestations/reproductions') Reproduction
+                    li
+                        a(href='/prestations/creer') Prestations
 
                     li.dropdown
                         a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
