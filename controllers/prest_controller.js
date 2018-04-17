@@ -28,23 +28,51 @@ exports.pres_create = function(req, res) {
 };
 
 exports.pres_store = function(req, res) {
-    var ligue = req.body.idLigue;
+    var ligue = req.body.idligue;
+    var datePres = req.body.datePres;
     var typeAffr = req.body.idTypeAffr;
     var quantite = req.body.qteAffr;
-    var idPrest = '1';
+    var idPres = 0;
 
-    const query =  {
-        name: 'ajouter-prest',
-        text: 'INSERT INTO affranchissement (quantite, typeaffr, idprestation) VALUES ($1, $2, $3)',
-        values: [quantite, typeAffr, idPrest]
+    const query2 =  {
+        name: 'afficher-idPres',
+        text: 'select max(id) as max from "prestation"',
     };
 
-    db.get().query(query, function(err, result){
+    const query3 =  {
+        name: 'ajouter-prest',
+        text: 'INSERT INTO prestation (idLigue, datePres) VALUES ($1, $2)',
+        values: [ligue, datePres]
+    };
+
+    db.get().query(query3, function(err, result3) {
         if (err) {
             console.log(err.stack);
-            res.send('ERROR');
+            res.send('ERROR INSERT PRESTA');
         } else {
-            res.redirect('../../');
+            db.get().query(query2, function (err, result2) {
+                if (err) {
+                    console.log(err.stack);
+                    res.send('ERROR MAX PRESTA');
+                } else {
+                    idPres = result2.rows[0].max;
+
+                    const query = {
+                        name: 'ajouter-affr',
+                        text: 'INSERT INTO affranchissement (quantite, typeaffr, idprestation) VALUES ($1, $2, $3)',
+                        values: [quantite, typeAffr, idPres]
+                    };
+
+                    db.get().query(query, function (err, result) {
+                        if (err) {
+                            console.log(err.stack);
+                            res.send('ERROR INSERT AFFR');
+                        } else {
+                            res.redirect('../../');
+                        }
+                    });
+                }
+            });
         }
     });
 

@@ -1,1 +1,22 @@
 extends ../layout
+
+block append body
+    .container.theme-showcase(role='main')
+
+
+
+        .page-header
+            h3 Établir une facture:
+
+        .jumbotron
+            form(method='POST' action='etablir')
+                div.form-group
+                    label(for='montant') Montant:
+                    input#montant.form-control(type='int', placeholder='Montant de la facture' name='montant')
+                div.form-group
+                    label(for='description') Description:
+                    input#description.form-control(type='text', placeholder='Description de la facture' name='description')
+                div.form-group
+                    label(for='idligue') Ligue:
+                    input#idligue.form-control(type='int', placeholder='Ligue' name='idligue')
+                button.btn.btn-primary(type='submit') Valider
